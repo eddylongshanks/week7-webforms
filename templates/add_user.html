@@ -1,11 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add User</title>
-</head>
-<body>
-    <h1>Add New User</h1>
-</body>
-</html>
+{% extends "public_template.html" %}
+
+{% block content %}
+
+<h1>Add New User</h1>
+<form action="/add_user" method="POST">
+
+    {% if error_summary %}
+    <p class="text-danger">{{ error_summary }}</p>
+    {% endif %}
+
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" id="first-name" name="first-name">
+    </div>
+        
+    <div class="form-group">
+        <label>Age</label>
+        <input type="text" class="form-control" id="age" name="age">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add</button>
+    
+</form>  
+
+{% endblock %}
