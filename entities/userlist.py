@@ -15,12 +15,20 @@ class User:
 
 class Users:
     def __init__(self):
-        self.users = list()
+        self.users = list()        
+        self.counter = 0
 
     def AddUser(self, user):
+        user.id = self.counter
         self.users.append(user)
+        # Counter will always increase, even after deleting an item, therefore will always be unique
+        self.counter += 1
 
-    # Returns the array contents
+    def DeleteUser(self, id):
+        for index, user in enumerate(self.users):
+            if user.id == id:
+                del self.users[index]
+    
     def GetUsers(self):
         return self.users
 

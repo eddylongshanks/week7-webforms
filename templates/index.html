@@ -6,20 +6,25 @@
 <h4>{{ usercount }}</h4>
 
 <table class="styled-table">
-    <thead>
+    <thead>        
         {% if users %}
         <tr>
             <th>Name</th>
             <th>Age</th>
         </tr>
         {% endif %}
-    </thead>    
+    </thead>
     {% for user in users %}
-        <tr>
-            <td>{{ user.name }}</td>
-            <td>{{ user.age }}</td>
-        </tr>
-    {% endfor %} 
+    <tr>
+        <td>{{ user.name }}</td>
+        <td>{{ user.age }}</td>
+        <form action="/delete_user" method="post">
+            <td>
+                <button type="submit" value="{{ user.id }}" name="delete">Delete</button>
+            </td>
+        </form>
+    </tr>
+    {% endfor %}
 </table>
 
 <form action="/add_user" method="get">

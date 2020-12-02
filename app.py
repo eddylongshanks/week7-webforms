@@ -29,6 +29,13 @@ def add_user():
         
     return render_template("add_user.html")
 
+@app.route("/delete_user", methods=["POST"])
+def delete_user():
+    user_id = request.form["delete"]
+    users.DeleteUser(int(user_id))
+
+    return redirect("/")
+
 def get_errors(form_to_validate):
         invalid_input = list()
 
