@@ -18,7 +18,6 @@ class Users:
         self.users = list()
 
     def AddUser(self, user):
-        # Check for the type of the object to determine admin status        
         self.users.append(user)
 
     # Returns the array contents
@@ -26,7 +25,7 @@ class Users:
         return self.users
 
     def __str__(self):
-        return "There are {0} users" \
+        return "Number of users: {0}" \
             .format(str(len(self.users)))
 
     def __repr__(self):

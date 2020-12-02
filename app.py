@@ -9,7 +9,7 @@ users = Users()
 @app.route("/")
 def home():
     userlist = users.GetUsers()
-    return render_template("index.html", users=userlist)
+    return render_template("index.html", users=userlist, usercount=users.__str__())
 
 @app.route("/add_user", methods=["GET", "POST"])
 def add_user():

@@ -2,12 +2,17 @@
 
 {% block content %}
 
+<h1>Current list of Active Users</h1>
+<h4>{{ usercount }}</h4>
+
 <table class="styled-table">
     <thead>
+        {% if users %}
         <tr>
             <th>Name</th>
             <th>Age</th>
         </tr>
+        {% endif %}
     </thead>    
     {% for user in users %}
         <tr>
